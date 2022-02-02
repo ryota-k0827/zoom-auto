@@ -1,12 +1,12 @@
-@REM ãƒŸãƒ¼ãƒ†ã‚£ãƒ³ã‚°ID
-set MEETINGID=
-@REM ãƒŸãƒ¼ãƒ†ã‚£ãƒ³ã‚°ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
-set PASSWD=
-@REM æŽˆæ¥­æ™‚é–“ï¼ˆéŒ²ç”»æ™‚é–“ï¼‰
-set RECTIME=90
-@REM ãƒãƒ£ãƒƒãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ˆå‡ºå¸­ç¢ºèªç”¨ï¼‰
-set MSG=80538IH13A115é‡‘å­å‡Œå¤§
+@REM ƒ~[ƒeƒBƒ“ƒOID
+set MEETINGID=71573572426
+@REM ƒ~[ƒeƒBƒ“ƒOƒpƒXƒ[ƒh
+set PASSWD=zM44Z5
+@REM Žö‹ÆŽžŠÔi•ªj
+set RECTIME=1
+@REM ƒ`ƒƒƒbƒgƒƒbƒZ[ƒWioÈŠm”F—pj
+set MSG=80538IH13A115‹àŽq—½‘å
 
 start zoommtg:"//zoom.us/join?action=join&confno=%MEETINGID%
 python ./app.py %PASSWD% %RECTIME% %MSG%
-timeout /t 10
+timeout /t 5
