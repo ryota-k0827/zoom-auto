@@ -2,6 +2,11 @@ from pywinauto import Application
 import pywinauto
 
 import time
+import sys
+
+passwd = sys.argv[1]
+rec_time = sys.argv[2]
+chat_msg = sys.argv[3]
 
 def captureZoom():
     while True:
@@ -13,7 +18,7 @@ def captureZoom():
             continue
 
     zoom[u"ミーティング パスコードを入力"].set_focus() # パスコード入力ウィンドウ
-    pywinauto.keyboard.send_keys("c6cVBV") # パスワード入力
+    pywinauto.keyboard.send_keys(passwd) # パスワード入力
     pywinauto.keyboard.send_keys("{ENTER}") # Enter（入室）
     
     time.sleep(5)
@@ -27,7 +32,7 @@ def captureZoom():
             break
         except pywinauto.findbestmatch.MatchError: #  -> 再取得
             continue
-    pywinauto.keyboard.send_keys("80538IH13A115金子凌大") # 出席入力
+    pywinauto.keyboard.send_keys(chat_msg) # 出席入力
     pywinauto.keyboard.send_keys("{ENTER}") # チャット送信
     pywinauto.keyboard.send_keys("{ESC}") # チャットウィンドウ閉じる
     
@@ -37,13 +42,12 @@ def captureZoom():
             zoom = Application(backend="uia").connect(best_match=u"Zoom ミーティング")
             zoom[u"Zoom ミーティング"].set_focus() # 録画対象
             break
-        except pywinauto.findbestmatch.MatchError: # Zoomミーティング入室していない -> 再取得
+        except: # Zoomミーティング入室していない -> 再取得
             continue
     
     pywinauto.keyboard.send_keys("{VK_LWIN down}%{R down}{VK_LWIN up}{R up}") # 録画開始
     
-    time.sleep(30)
-    # time.sleep(5400) # 90分
+    time.sleep(rec_time)
     
     pywinauto.keyboard.send_keys("%{VK_MENU down}%{H down}%{VK_MENU up}%{H up}") # チャットウィンドウ起動
     pywinauto.keyboard.send_keys("80538IH13A115金子凌大") # 出席入力
