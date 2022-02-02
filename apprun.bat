@@ -1,11 +1,11 @@
 @REM ミーティングID
-set MEETINGID=71573572426
+set MEETINGID=
 @REM ミーティングパスワード
-set PASSWD=zM44Z5
+set PASSWD=
 @REM 授業時間（分）
-set RECTIME=1
+set RECTIME=
 @REM チャットメッセージ（出席確認用）
-set MSG=80538IH13A115金子凌大
+set MSG=
 
 start zoommtg:"//zoom.us/join?action=join&confno=%MEETINGID%
 python ./app.py %PASSWD% %RECTIME% %MSG%
